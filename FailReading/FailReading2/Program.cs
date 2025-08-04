@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FailReading2
 {
-    class Program;
+    class Program
 
     {
         public static void Main(string[] args)
