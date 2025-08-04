@@ -29,7 +29,7 @@ namespace FailReading2
             }
             catch (Exception e)
             {
-                Console.WriteLilne("エラーが発生しました：" + e.Message);
+                Console.WriteLine("エラーが発生しました：" + e.Message);
             }
         }
     }
