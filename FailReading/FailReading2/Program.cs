@@ -6,22 +6,19 @@ using System.Text;
 namespace FailReading2
 {
     class Program
-
     {
         public static void Main(string[] args)
         {
-            string filePath = "C:/WordFile/programword.txt";
+            string filePath = @"C:/WordFile/C#word.txt";
             try
             {
-                using (StreamReader sr = new StreamReader(filePath))
+                using StreamReader sr = new StreamReader(filePath);
+                string? line;
+                while ((line = sr.ReadLine()) != null)
                 {
-                    string line;
-                    while ((line = sr.ReadLine()) != null)
-                    {
                         Console.WriteLine(line);
-                    }
-
                 }
+
             }
             catch (FileNotFoundException)
             {
