@@ -1,5 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
+using System.Globalization;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -9,24 +12,37 @@ namespace FailReading2
     {
         public static void Main(string[] args)
         {
-            string filePath = @"C:/WordFile/C#word.txt";
-            try
+            while(true)
             {
-                using StreamReader sr = new StreamReader(filePath);
-                string? line;
-                while ((line = sr.ReadLine()) != null)
+                try
                 {
-                        Console.WriteLine(line);
-                }
+                    string? readPath;
+                    string defPath = "C:/WordFile/";
+                    string? filePath;
+                    do
+                    {
+                        Console.WriteLine("ファイル名を入力してください");
+                        readPath = Console.ReadLine();
+                        filePath = defPath + readPath;
+                    } while (readPath == string.Empty);
 
-            }
-            catch (FileNotFoundException)
-            {
-                Console.WriteLine("ファイルが見つかりません。");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("エラーが発生しました：" + e.Message);
+                    using StreamReader sr = new StreamReader(filePath);
+                    string? line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        Console.WriteLine(line);
+                    }
+                    break;
+
+                }
+                catch (FileNotFoundException)
+                {
+                    Console.WriteLine("ファイルが見つかりません。");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("エラーが発生しました：" + e.Message);
+                }
             }
         }
     }
