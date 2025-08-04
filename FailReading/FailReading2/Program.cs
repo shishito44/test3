@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
 using System.Globalization;
+using System.Net.Mime;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
@@ -12,6 +13,7 @@ namespace FailReading2
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine("ファイルを読み込むプログラム(finで終了)");
             while(true)
             {
                 try
@@ -24,6 +26,11 @@ namespace FailReading2
                         Console.WriteLine("ファイル名を入力してください");
                         readPath = Console.ReadLine();
                         filePath = defPath + readPath;
+                        if (readPath == "fin")
+                        {
+                            Console.WriteLine("プログラムを終了します");
+                            return;
+                        }
                     } while (readPath == string.Empty);
 
                     using StreamReader sr = new StreamReader(filePath);
