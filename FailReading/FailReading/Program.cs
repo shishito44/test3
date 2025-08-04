@@ -9,22 +9,8 @@ namespace FailReading
     {
         public static void Main(string[] args)
         {
-            /*string filePath = "gitword.txt";
 
-            using (StreamReader sr = new StreamReader(filePath))
-            {
-                Console.WriteLine("ReadToEnd: "+ allText);
-
-                sr.BaseStream.Seek(0, SeekOrigin.Begin);
-
-                string line;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    Console.WriteLine("ReadLine: " + line);
-                }
-            }
-            */
-
+            //簡易的なファイルの読み込み
             StreamReader sr = new StreamReader(@"C:\WordFile\gitword.txt", Encoding.UTF8);
 
             string str = sr.ReadToEnd();
