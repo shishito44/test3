@@ -17,7 +17,7 @@ namespace FailReading2
                 try
                 {
                     string? readPath;
-                    string defPath = "C:/WordFile/";
+                    string defPath = "C:/WordFile/";//使わない場合は空白にする
                     string? filePath;
                     do
                     {
