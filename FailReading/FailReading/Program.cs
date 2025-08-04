@@ -1,23 +1,39 @@
 ﻿// See https://aka.ms/new-console-template for more information
-
+using System;
+using System.Text;
 
 
 namespace FailReading
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-            int a = 2;
-            int b = 3;
-            int c = 4;
-            int x,y,z;
+            /*string filePath = "gitword.txt";
 
-            x = a + b;
-            y = c - a;
-            z = b * c;
-            Console.WriteLine("x={0} v={1} z={2}", x, y, z);
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                Console.WriteLine("ReadToEnd: "+ allText);
+
+                sr.BaseStream.Seek(0, SeekOrigin.Begin);
+
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine("ReadLine: " + line);
+                }
+            }
+            */
+
+            StreamReader sr = new StreamReader(@"C:\WordFile\gitword.txt", Encoding.UTF8);
+
+            string str = sr.ReadToEnd();
+
+            sr.Close();
+
+            Console.WriteLine(str);
+
+            Console.ReadKey();
 
         }
     }
